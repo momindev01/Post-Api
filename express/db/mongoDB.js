@@ -1,11 +1,8 @@
-
 const mongoose = require('mongoose');
-
+require('dotenv').config();
 const connectDB = async () => {
     try {
-        await mongoose.connect(
-            'mongodb+srv://<user>:<password>@cluster0.ckonicz.mongodb.net/studentDB'
-        );
+        await mongoose.connect(process.env.MONGO_URI);
 
         console.log("Mongo DB Connected Successfully");
     }
